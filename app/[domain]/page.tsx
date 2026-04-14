@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { supabase } from '@/lib/supabase'
-import { BrandKit } from '@/lib/types'
+import { supabase } from '../../lib/supabase'
+import { BrandKit } from '../../lib/types'
 
 export default function KitPage() {
   const params = useParams()
