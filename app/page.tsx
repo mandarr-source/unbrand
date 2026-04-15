@@ -220,8 +220,8 @@ export default function Home() {
           gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
           gap: '16px',
         }}>
-          {allGallery.map((kit: any, i: number) => {return (
-            
+          {allGallery.map((kit: any) => {return (
+            <a
               key={kit.domain}
               href={`/${kit.domain}`}
               style={{
@@ -263,10 +263,10 @@ export default function Home() {
                     background: c.hex, border: '1px solid var(--border)',
                     flexShrink: 0,
                   }} />
-                ))}
+                )})}
               </div>
             </a>
-          ))}
+          )})}
         </div>
       </section>
 

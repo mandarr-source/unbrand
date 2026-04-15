@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Anthropic from '@anthropic-ai/sdk'
 import * as cheerio from 'cheerio'
-import { supabaseAdmin } from '../../../lib/supabase'
+import { supabaseAdmin } from '../../../lib/supabase-admin'
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
@@ -33,7 +33,8 @@ async function scrapeWebsite(url: string) {
     const favicon = $('link[rel*="icon"]').attr('href') || ''
     const ogImage = $('meta[property="og:image"]').attr('content') || ''
 
-    return { title, description, favicon, ogImage, colors: [...new Set(colors)].slice(0, 20), fonts }
+    const uniqueColors = colors.filter((color, index, arr) => arr.indexOf(color) === index)
+    return { title, description, favicon, ogImage, colors: uniqueColors.slice(0, 20), fonts }
   } catch {
     return null
   }
