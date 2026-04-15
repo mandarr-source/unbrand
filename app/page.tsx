@@ -220,7 +220,7 @@ export default function Home() {
           gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
           gap: '16px',
         }}>
-          {allGallery.map((kit: any, i: number) => (
+          {allGallery.map((kit: any, i: number) => {return (
             
               key={kit.domain}
               href={`/${kit.domain}`}
@@ -257,7 +257,7 @@ export default function Home() {
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '6px' }}>
-                {(kit.colors || []).slice(0, 5).map((c: any, ci: number) => (
+                {(kit.colors || []).slice(0, 5).map((c: any, ci: number) => {return (
                   <div key={ci} style={{
                     width: '24px', height: '24px', borderRadius: '50%',
                     background: c.hex, border: '1px solid var(--border)',
